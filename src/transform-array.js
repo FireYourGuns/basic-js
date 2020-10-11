@@ -2,23 +2,23 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
   var new_Array = [];
-    var X = arr.length;
-        for (var i = 0; i < X; i++) {
-          new_Array.push(arr[i]);
-            if (arr[i] === '--double-next') {
-              new_Array[i] = arr[i+1];
-            }
-            if (arr[i] === '--discard-prev') {
-              new_Array.pop();
-              new_Array.pop();
-            }
-            if (arr[i] === '--discard-next') {
-              new_Array.pop();
-              i+= 1;
-            }
-            if (arr[i] === '--double-prev') {
-              new_Array[i] = arr[i-1];
-            }
-        }
+  var X = arr.length;
+      for (var i = 0; i < X; i++) {
+          if (arr[i] === '--double-next' && arr[i+1]) {
+            new_Array.push(arr[i]);
+            new_Array[i] = arr[i+1];
+          } else 
+          if (arr[i] === '--discard-prev' && arr[i-1]) {
+            new_Array.pop();
+          } else
+          if (arr[i] === '--discard-next' && arr[i+1]) {
+            i+= 1;
+          } else
+          if (arr[i] === '--double-prev' && arr[i-1]) {
+            new_Array.push(arr[i-1]);
+          } else {
+            new_Array.push(arr[i]);
+          }
+      }
 return new_Array;
 };

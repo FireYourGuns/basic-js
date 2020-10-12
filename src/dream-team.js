@@ -12,9 +12,12 @@ module.exports = function createDreamTeam(arr) {
       var Y = "";
       Y += arr[i]; 
       if (typeof arr[i] === 'string') {
-        str += Y.split("").splice(0,1);
+        
+        str += Y.split("").splice(Y.search(/[A-Za-z]/g),1);
       }
+        
     }
+    
   var X = str.split("").sort();
   if (X === undefined || X === []) {return false}   //
   for (i = 0; i < X.length; i++) {

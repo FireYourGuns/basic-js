@@ -10,7 +10,8 @@ function createDreamTeam(arr) {
       var Y = "";
       Y += arr[i]; 
       if (typeof arr[i] === 'string') {
-        str += Y.split("").splice(0,1);
+        
+        str += Y.split("").splice(Y.search(/[A-Za-z]/g),1);
       }
         
     }
@@ -27,6 +28,6 @@ function createDreamTeam(arr) {
 return name.toUpperCase();
 };
 
-console.log(    createDreamTeam(    ['Olivia', 1111, 'Lily', 'Oscar', true, null]   )     )
+console.log(    createDreamTeam(    ['  Olivia', 1111, '   Lily', 'Oscar', true, null]   )     )
 
 

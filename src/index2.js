@@ -12,11 +12,12 @@ function createDreamTeam(arr) {
       if (typeof arr[i] === 'string') {
         
         str += Y.split("").splice(Y.search(/[A-Za-z]/g),1);
+        var H = str.toUpperCase()
       }
         
     }
     
-  var X = str.split("").sort();
+  var X = H.split("").sort();
   if (X === undefined || X === []) {return false}   //
   for (i = 0; i < X.length; i++) {
     var Z = X[i];
@@ -28,6 +29,18 @@ function createDreamTeam(arr) {
 return name.toUpperCase();
 };
 
-console.log(    createDreamTeam(    ['  Olivia', 1111, '   Lily', 'Oscar', true, null]   )     )
+console.log(    createDreamTeam(    [
+  ['David Abram'],
+  ['Robin Attfield'],
+  'Thomas Berry',
+  ['Paul R.Ehrlich'],
+  'donna Haraway',
+  ' BrIaN_gOodWiN  ',
+  {
+    0: 'Serenella Iovino'
+  },
+  'Erazim Kohak',
+  '  val_plumwood',
+]   )     )
 
 

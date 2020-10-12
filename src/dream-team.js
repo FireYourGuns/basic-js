@@ -14,12 +14,13 @@ module.exports = function createDreamTeam(arr) {
       if (typeof arr[i] === 'string') {
         
         str += Y.split("").splice(Y.search(/[A-Za-z]/g),1);
+        
       }
         
     }
     
-  var X = str.split("").sort();
-  if (X === undefined || X === []) {return false}   //
+  var X = str.toUpperCase().split("").sort();
+  if (X === undefined || X === []) {return false}   
   for (i = 0; i < X.length; i++) {
     var Z = X[i];
     if (isNaN(Z)) {

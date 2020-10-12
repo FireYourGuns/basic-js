@@ -1,6 +1,14 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
+  if (arr.length == 0) {
+    return []
+  };
+  if (!Array.isArray(arr)) {
+    throw new Error('Введено не верное значение!')
+  }
+
+  
   var new_Array = [];
   var X = arr.length;
       for (var i = 0; i < X; i++) {

@@ -1,46 +1,30 @@
-function createDreamTeam(arr) {
-  if (arr === null) {return false}  
-  if (!Array.isArray(arr)) {return false}
-  if (arr.length == 0) {return false}
-
-  var name="";
-  var str = "";
-
-    for (var i = 0; i < arr.length; i++) {
-      var Y = "";
-      Y += arr[i]; 
-      if (typeof arr[i] === 'string') {
-        
-        str += Y.split("").splice(Y.search(/[A-Za-z]/g),1);
-        var H = str.toUpperCase()
-      }
-        
-    }
-    
-  var X = H.split("").sort();
-  if (X === undefined || X === []) {return false}   //
-  for (i = 0; i < X.length; i++) {
-    var Z = X[i];
-    if (isNaN(Z)) {
-      name += X[i];
-    }
+function getSeason(date) {
+  
+  if (date === undefined) {
+    return "Unable to determine the time of year!"
   }
+ /* if (isNAN(date)) {
+    throw new Error('Неправильно введена дата')
+  }*/
 
-return name.toUpperCase();
+ var month = date.getMonth();
+ 
+  
+      if ([0, 1, 2].includes(month)) {
+          return 'winter'
+      } 
+      if ([3, 4, 5].includes(month)) {
+        return 'spring'
+      } 
+      if ([6, 7, 8].includes(month)) {
+        return 'summer'
+      } 
+      if ([9, 10, 11].includes(month)) {
+        return 'autumn'
+      }
+  
+      throw new Error('Неправильно введена дата')
 };
 
-console.log(    createDreamTeam(    [
-  ['David Abram'],
-  ['Robin Attfield'],
-  'Thomas Berry',
-  ['Paul R.Ehrlich'],
-  'donna Haraway',
-  ' BrIaN_gOodWiN  ',
-  {
-    0: 'Serenella Iovino'
-  },
-  'Erazim Kohak',
-  '  val_plumwood',
-]   )     )
-
-
+//const springDate = new Date(1354, 4, 17, 11, 27, 4, 321)
+console.log(      getSeason(new Date(2019, 11, 22, 23, 45, 11, 500))      )

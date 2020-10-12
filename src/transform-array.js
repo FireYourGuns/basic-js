@@ -15,32 +15,31 @@ module.exports = function transform(arr) {
         
 
           if (arr[i] === '--double-next') {
-            if (arr[i+1] !== undefined) {
+            if (i+1 < X) {
               new_Array.push(arr[i+1]);
             }
-          }  
+          }  else
 
           if (arr[i] === '--discard-prev') {
+            if (arr[i-2] !== '--discard-next') {
             new_Array.pop();
-          }  
+            }
+          }  else
 
           if (arr[i] === '--discard-next') {
-              i += 2;
-              if (i >= X) {break}
-          }  
+              i += 1;
+                if (i >= X) {
+                  break
+                }
+          }  else
 
           if (arr[i] === '--double-prev') {
-              if (arr[i-2] === '--discard-next') {
-                i += 2;
-              }
-              if (arr[i-1] !== undefined) {
+                 
+                if (arr[i-1] !== undefined && arr[i-2] !== '--discard-next') {
                 new_Array.push(arr[i-1]);
               }
               
-          }  
-
-          if (arr[i] !== '--double-next' && arr[i] !== '--discard-next'
-              && arr[i] !== '--double-prev' && arr[i] !== '--discard-prev') {
+          }  else {
             new_Array.push(arr[i]);
             }
           

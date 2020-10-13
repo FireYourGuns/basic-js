@@ -2,7 +2,7 @@ class VigenereCipheringMachine {
     constructor (dir) {
         this.direction = dir;
         this.alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-                                                                       
+                                                                    
     }
     
           encrypt(message, key) {
@@ -30,7 +30,8 @@ class VigenereCipheringMachine {
               string += this.alphabet[index];
               }
             }
-            return string.toUpperCase()
+            
+            return this.direction === false ?  string.split("").reverse().join("").toUpperCase() : string.toUpperCase();
             
           }    
 
@@ -59,10 +60,12 @@ class VigenereCipheringMachine {
                 string += this.alphabet[index];
               }
             }
-            return string.toUpperCase();
+            
+            return this.direction === false ?  string.split("").reverse().join("").toUpperCase() : string.toUpperCase();
           }
+
 };
 
-console.log(         new VigenereCipheringMachine(false).decrypt('HSVD AJAL ^^', 'behappy') )
+console.log(         new VigenereCipheringMachine(false).encrypt('attack at dawn!', 'alphonse') )
          
        

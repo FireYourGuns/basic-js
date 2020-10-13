@@ -3,6 +3,12 @@ const CustomError = require("../extensions/custom-error");
 module.exports = function repeater(str, options) {
   var answer = str;
   var aRT = "";
+  if (options.addition===false) {
+    options.addition = 'false'
+  }
+  if (options.addition===null) {
+    options.addition = 'null'
+  }
  
   if (!options.separator && !options.addition && !options.additionsRepeatTimes) {
     for (var i = 1; i < options.repeatTimes; i++)  {

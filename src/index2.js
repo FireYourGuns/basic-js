@@ -1,6 +1,12 @@
 function repeater(str, options) {
   var answer = str;
   var aRT = "";
+  if (options.addition==false) {
+    options.addition = 'false'
+  }
+  if (options.addition==null) {
+    options.addition = 'null'
+  }
  
   if (!options.separator && !options.addition && !options.additionsRepeatTimes) {
     for (var i = 1; i < options.repeatTimes; i++)  {
@@ -41,6 +47,6 @@ function repeater(str, options) {
     return answer;
 };
 
-console.log(         repeater    ('аГуСиК ', { repeatTimes: 3, separator: '♥♥♥  ', addition: ' пОкАкУнЬкАл ', additionRepeatTimes: 5, additionSeparator: '( ͡° ͜ʖ ͡°)' })      )
+console.log(         repeater    (true, { repeatTimes: 3, separator: '??? ', addition: false, additionRepeatTimes: 2, additionSeparator: '!!!' })     )
          
          'TESTstrADD!'

@@ -36,11 +36,33 @@ class VigenereCipheringMachine {
 
           decrypt(message, key) {
             if (message==undefined || key==undefined) {
-              throw new Error('Что-то пошло не так ((');
-          }
+                throw new Error('Что-то пошло не так ((');
+            }
+            var m = message.toLowerCase().split('');
+            var k = key.toLowerCase().split('');
+            var string = "";
+            var j = -1;
+            for (var i = 0; i < m.length; i++) {
+              if (this.alphabet.indexOf(m[i]) !== -1) {
+                j++
+              } 
+              if (j >= k.length) {
+                j %= k.length;
+              }
+              if (this.alphabet.indexOf(m[i]) === -1) {
+                string += m[i];
+              } else {
+                var index = this.alphabet.indexOf(m[i]) - this.alphabet.indexOf(k[j]);
+                if (index < 0) {
+                  index = this.alphabet.length + index;
+                }
+                string += this.alphabet[index];
+              }
+            }
+            return string.toUpperCase();
           }
 };
 
-console.log(         new VigenereCipheringMachine(false).encrypt('attack at dawn!', 'alphonse')  )
+console.log(         new VigenereCipheringMachine(false).decrypt('HSVD AJAL ^^', 'behappy') )
          
        

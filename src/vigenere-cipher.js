@@ -65,3 +65,5 @@ class VigenereCipheringMachine {
 }
 
 module.exports = VigenereCipheringMachine;
+
+// console.log(   new VigenereCipheringMachine(false).encrypt('attack at dawn!', 'alphonse')   )
